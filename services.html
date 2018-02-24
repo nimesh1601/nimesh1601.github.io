@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>Riviere | Jaipur Best Salon</title>
+  <link rel="stylesheet" media="all" href="assets/application-58b1f987f7851e569f8788e260908725.css" data-turbolinks-track="true" />
+  <script src="assets/application-8d7c7f021fb700dffdd8a8aa4d5c41dc.js" data-turbolinks-track="true"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link href='http://fonts.googleapis.com/css?family=News+Cycle:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>
+
+  <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <![endif]-->
+  <meta name="title" content="Riviere - Hair and Beauty Salon of Jaipur.">
+  <meta name="description" content="Riviere Salon is equipped with the knowledge on a wide variety of professional hair & skin care products, and served by industry experts.">
+  <meta name="keywords" content="riviere salon,riviere jaipur,salon near banipark,best salon in banipark,free hair cut in jaipur,men beauty services,women beauty services,bridal services,jaipur men salon,women salon in jaipur">
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107681666-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-107681666-1');
+</script>
+
+  </head>
+<body id="services_index">
+
+	<div id="header">
+		<div class="container">
+			<div id="logo-and-navbar">
+				<a href="index.html" id="logo"><img src="assets/logo.png" alt="Riviere Salon logo" /></a>
+				<div id="navbar">
+					<div id="toggle-nav" class="mobile">
+						<a href="#">
+							<span class='menu-toggle-icon'></span>
+							<h1>Menu</h1>
+						</a>
+					</div>
+					<ul id="nav">
+						<li class=""><a href="index.html">Home</a></li>
+						<li class=""><a href="about_us.html">About us</a></li>
+						<li class="">
+							<a href="services.html" class="selected">Services</a>
+							<ul>
+								<li><a href="services/men.html">Men</a></li>
+								<li class="last"><a href="services/woman.html">Woman</a></li>
+							</ul>
+						</li>
+						<li class=""><a href="gallery.html">Gallery</a></li>
+						<li class=""><a href="bridal.html">Bridal</a></li>
+						<li class=""><a href="offers.html">Offers</a></li>
+						<li class="last "><a href="contact_us.html">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="content">
+	    <div class="container">
+	    		<div id="services-banner" class="banner page-banner">
+				<div class="mobile"><img src="system/multiple_images/mobile_images/000/000/011/original/services_mobile0134.jpg?1437396518" alt="Services mobile" /></div>
+	<div class="tablet"><img src="system/multiple_images/desktop_images/000/000/011/original/Services-Desktop0b46.jpg?1437129365" alt="Services desktop" /></div>
+
+	</div>
+	<!-- <div id="services-banner">
+			<img src="/assets/services-banner-56b554fd7c69b8736c2645046f1ad719.png" alt="Services banner" />
+	</div> -->
+
+	     		<div id="services-content">
+			<div id="services">
+				<div class="service-links">
+					<a href="services/men.html"><img src="assets/Men-services-button-f7e71133152874b5488363095703b764.png" alt="Men services button" /></a>
+					<a href="services/woman.html" class='last'><img src="assets/Women-services-button-ef2e51bd481b2fe184bd1aa8819b28cb.png" alt="Women services button" /></a>
+				</div>
+				<div id="appointment-form" class="service">
+				</div>
+			</div>
+	</div>
+
+	      		<script type="text/javascript">
+		$("#services-list .service:nth-child(2n)").addClass('second-in-row');
+		$("#services-list .service:nth-child(4n)").addClass('fourth-in-row');
+		$("#services-list .service:nth-child(5n)").addClass('last-in-row');
+
+		$("#services-list .service a.show-service-details").click(function() {
+			$("#services-list .service").removeClass('selected');
+			if ($('.service-price-details').length != 0) {
+				$('.service-price-details').remove();
+			}
+			$(this).parent().addClass('selected');
+			var selectedService = $(this).parent();
+			var offsetTopForSelectedService = selectedService.offset().top;
+			var services = $("#services-list .service");
+
+			$.ajax({
+				url: "/services/woman/" + $(this).attr('id')
+			}).done(function(data) {				
+				loadServicePriceDetails(services, offsetTopForSelectedService, data);
+			});
+
+			return false;
+		});
+
+		// $(window).resize(function() {
+		// 	var services = $("#services-list .service");
+
+		// 	if ($('.service-price-details').length != 0) {
+		// 		var servicePriceDetails = $('.service-price-details').clone();
+		// 		var offsetTopForSelectedService = $('.service-price-details').offset().top;
+		// 		$('.service-price-details').remove();
+		// 		loadServicePriceDetails(services, offsetTopForSelectedService, servicePriceDetails);
+		// 	}
+		// });
+
+		function loadServicePriceDetails(services, offsetTopForSelectedService, data) {
+			var detailsLoaded = false;
+			$.each(services, function(i, elt) {
+				if ($(elt).offset().top > offsetTopForSelectedService) {
+					$(data).insertBefore($(elt));
+					detailsLoaded = true;
+					return false;
+				}
+			});
+
+			if(!detailsLoaded) {
+				$(data).insertAfter($("#services-list .service").last());
+			}
+		}
+	</script>
+
+	    </div>
+	</div>
+	<div id="footer">
+		<div class="container">
+			<div id="social-icons-and-nav">
+				<ul id="social-icons">
+					<li><a href="https://fb.me/rivieresalonjaipur" class="facebook" target="_blank"></a></li>
+				</ul>
+				<ul id="footer-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about_us.html">About us</a></li>
+					<li><a href="services.html">Services</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+					<li><a href="bridal.html">Bridal</a></li>
+					<li><a href="contact_us.html">Contact</a></li>
+				</ul>
+			</div>
+			<div id="copyright">
+				<p>2017 &copy; Copyrights Riviere Salon.</p>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$("#toggle-nav").click(function() {
+		$("#nav").toggle();
+		return false;
+	});
+
+	$("#nav li").hover(function() {
+		$(this).addClass('hover');
+	}, function() {
+		$(this).removeClass('hover');
+	});
+</script>
+</html>
